@@ -6,8 +6,10 @@ module.exports = {
     //req: requisição (contém os parametros em tela)
     //res: resposta
     async retornarProdutos(req,res) {
+        //req.query = ?param= na url
+        const { page=1 } = req.query;
         //Consulta no banco MongoDB todos o registros da tabela Produto
-        const produtos = await Produto.find();
+        const produtos = await Produto.paginate({ }, { page, limit:5});
 
         return res.json(produtos);
     },
