@@ -1,7 +1,10 @@
+//Framework JS
 const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const app = express();
+//Permitir enviar dados para aplicação com formato JSON.
+app.use(express.json());
 
 mongoose.connect(
     'mongodb://localhost:27017/nodeapi', 
